@@ -52,7 +52,7 @@ if (contactForm) {
 
     // Form validation
     let valid = true;
-    const inputs = this.querySelectorAll('input, textarea');
+    const inputs = this.querySelectorAll('input, textarea, select');
     inputs.forEach(input => {
       if (input.hasAttribute('required') && !input.value.trim()) {
         valid = false;
@@ -79,8 +79,20 @@ if (subscribeForm) {
     e.preventDefault();
     const emailInput = this.querySelector('input[type="email"]');
     if (emailInput.value) {
-      alert('¡Gracias por suscribirte!');
+      alert('¡Gracias por suscribirte! Pronto recibirás nuestras novedades tecnológicas.');
       emailInput.value = '';
     }
   });
 }
+
+// Service card animations
+const serviceCards = document.querySelectorAll('.service-card');
+serviceCards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-15px)';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0)';
+  });
+});
